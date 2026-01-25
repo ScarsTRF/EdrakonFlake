@@ -1,0 +1,37 @@
+diff --git a/Program.cs b/Program.cs
+index fbf113a502..a42812d4d0 100644
+--- a/Program.cs
++++ b/Program.cs
+@@ -21,6 +21,22 @@
+     public const string HEADLESS_EXTENSION = "XR_MND_headless";
+     public const string FB_FACE_EXTENSION  = "XR_FB_face_tracking2";
+ 
++    static int GetPort(string[] args)
++    {
++        if (Environment.GetEnvironmentVariable("EDRAKON_PORT") is string envPort 
++            && int.TryParse(envPort, out var port))
++        {
++            return port;
++        }
++        
++        if (args.Length > 0 && int.TryParse(args[0], out var argPort))
++        {
++            return argPort;
++        }
++        
++        return 9015;
++    }
++
+     [AllowNull]
+     static QuestPro headset;
+ 
+@@ -35,7 +51,7 @@
+ 
+         // File.WriteAllBytes("../OSCTest.osc", dest);
+ 
+-        headset = new(args.Length > 0 ? int.Parse(args[0]) : 8000);
++        headset = new(GetPort(args));
+         
+ 
+         headset.Initialize();
+
