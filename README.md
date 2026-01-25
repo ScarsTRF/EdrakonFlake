@@ -1,6 +1,6 @@
 # Edrakon Flake
 
-Flake for [BlueCyro's Edrakon](https://github.com/BlueCyro/Edrakon) for simulating SteamLinkVR OSC face tracking outputs.
+Flake for [BlueCyro's Edrakon](https://github.com/BlueCyro/Edrakon) program for simulating SteamLinkVR OSC face tracking endpoint for OpenXR headsets.
 
 This flake was something I honestly slapped together and will continue to try and work on it with my small patches here.
 
@@ -59,4 +59,4 @@ This also changes the default port it outputs from to be 9015 which is useful fo
 
 I'm also helping Edrakon to find the runtime for OpenXR, If XR_RUNTIME_JSON isn't available with a wrapper, it will look for it in `/etc/xdg/openxr` or `~/.config/openxr` automatically. This is especially needed for Monado or WiVRn users on NixOS which can use either `services.monado.defaultRuntime = true;` or for WiVRn users `services.wivrn.defaultRuntime = true;`
 
-All rights are reserved to BlueCryo for both [Edrakon](https://github.com/BlueCyro/Edrakon) and [KoboldOSC](https://github.com/BlueCyro/KoboldOSC), a dependency for Edrakon.
+All rights are reserved to BlueCryo for both [Edrakon](https://github.com/BlueCyro/Edrakon) and [KoboldOSC](https://github.com/BlueCyro/KoboldOSC), a dependency for Edrakon. This flake only adds environment variable capabilities with a small patch and builds it for NixOS users.
