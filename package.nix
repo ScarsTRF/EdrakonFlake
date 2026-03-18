@@ -45,7 +45,11 @@ buildDotnetModule rec {
         ./env-port.patch
     ];
 
-    projectFile = "Edrakon.csproj";
+    projectFile = [
+        "Edrakon.csproj"
+        "../KoboldOSC/KoboldOSC/KoboldOSC.csproj"
+    ];
+
     nugetDeps = ./deps.json;
 
     dotnet-sdk = dotnetCorePackages.sdk_10_0;
