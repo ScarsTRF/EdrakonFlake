@@ -16,7 +16,8 @@ Add to your `flake.nix`:
 
         edrakon = {
             url= "github:ScarsTRF/EdrakonFlake";
-            # Adding this here will reduce nix store file usage
+            # Adding this input override here will reduce nix store usage
+            # BUT CAN cause issues with getting deps for the app building
             inputs.nixpkgs.follows = "nixpkgs";
         };
         # ...
