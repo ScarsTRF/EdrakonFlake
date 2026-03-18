@@ -1,5 +1,15 @@
 [
   {
+    "pname": "Microsoft.AspNetCore.App.Ref",
+    "version": "9.0.13",
+    "hash": "sha256-uhcJ9ll5PEg4bX2PhIrxPZ270j2W2bYREarQCihyW7w="
+  },
+  {
+    "pname": "Microsoft.AspNetCore.App.Runtime.linux-x64",
+    "version": "9.0.13",
+    "hash": "sha256-RMGZEBbjAgzoZIf878drIgb33Q0+NYX6euOIV34BjQk="
+  },
+  {
     "pname": "Microsoft.Bcl.AsyncInterfaces",
     "version": "9.0.0",
     "hash": "sha256-BsXNOWEgfFq3Yz7VTtK6m/ov4/erRqyBzieWSIpmc1U="
@@ -38,6 +48,21 @@
     "pname": "Microsoft.Extensions.DependencyModel",
     "version": "8.0.0",
     "hash": "sha256-qkCdwemqdZY/yIW5Xmh7Exv74XuE39T8aHGHCofoVgo="
+  },
+  {
+    "pname": "Microsoft.NETCore.App.Host.linux-x64",
+    "version": "9.0.13",
+    "hash": "sha256-OQenvUHKKS0h1c2EirYATJIEgGpVCJvxHIykIV6NCaE="
+  },
+  {
+    "pname": "Microsoft.NETCore.App.Ref",
+    "version": "9.0.13",
+    "hash": "sha256-igu/tb7UIgqgP8+hGThU0N+nowgeKBOGdRxam+zrJvM="
+  },
+  {
+    "pname": "Microsoft.NETCore.App.Runtime.linux-x64",
+    "version": "9.0.13",
+    "hash": "sha256-yoB2mCxdhsE/grReVIyeH4Q2WpUA9hHxUyZemCC2Cuc="
   },
   {
     "pname": "Microsoft.NETCore.Platforms",

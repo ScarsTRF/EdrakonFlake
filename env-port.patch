@@ -31,7 +31,7 @@ index fbf113a502..a42812d4d0 100644
  
 -        headset = new(args.Length > 0 ? int.Parse(args[0]) : 8000);
 +        headset = new(GetPort(args));
-         
+
  
          headset.Initialize();
 

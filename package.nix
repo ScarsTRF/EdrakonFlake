@@ -8,7 +8,6 @@
     openxr-loader,
     libglvnd,
     vulkan-loader,
-    xorg,
     libdrm,
     udev,
     dbus,
@@ -28,13 +27,13 @@ let
 in
 buildDotnetModule rec {
     pname = "edrakon";
-    version = "0.1.0";
+    version = "1.0.0";
 
     src = fetchFromGitHub {
         owner = repoOwner;
         repo = "Edrakon";
-        rev = "16f6488b333f36f2aa478ebda6833efac34732b3";
-        hash = "sha256-LoadLvhfxnoVfFO+Utuyhzs+Xcbl3fONyr7VoROEZkY=";
+        rev = "0443dc24328666c6b03bc7569d6dfff28df49d76";
+        hash = "sha256-JBEeF2fbt4WEArFYijrmlM4lJ1YHuLyowyIKfCHpO2Q=";
     };
 
     postUnpack = ''
@@ -46,11 +45,15 @@ buildDotnetModule rec {
         ./env-port.patch
     ];
 
-    projectFile = "Edrakon.csproj";
+    projectFile = [
+        "Edrakon.csproj"
+        "../KoboldOSC/KoboldOSC/KoboldOSC.csproj"
+    ];
+
     nugetDeps = ./deps.json;
 
-    dotnet-sdk = dotnetCorePackages.sdk_9_0;
-    dotnet-runtime = dotnetCorePackages.runtime_9_0;
+    dotnet-sdk = dotnetCorePackages.sdk_10_0;
+    dotnet-runtime = dotnetCorePackages.runtime_10_0;
 
     nativeBuildInputs = [ makeWrapper ];
 
@@ -71,11 +74,13 @@ buildDotnetModule rec {
     ];
 
     # TODO: replace with a arg helper to handle XR runtime.
+
+    # NOTE: Leave out till port patch is ready
+    # --set-default EDRAKON_PORT "9015" \
     postFixup = ''
         wrapProgram $out/bin/Edrakon \
           --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath runtimeDeps}" \
           --prefix LD_LIBRARY_PATH : "/run/opengl-driver/lib" \
-          --set-default EDRAKON_PORT "9015" \
           --run '
               if [ -z "$XR_RUNTIME_JSON" ]; then
                   ACTIVE_RUNTIME="$HOME/.config/openxr/1/active_runtime.json"
@@ -96,7 +101,9 @@ buildDotnetModule rec {
     meta = {
         description = "OpenXR to SteamLink OSC bridge";
         homepage = "https://github.com/OWNER/Edrakon";
-        license = lib.licenses.mit;
+        # Since Cyro doesn't provide a license for their code
+        # Just leave it out for now
+        # license = lib.licenses.unfree;
         mainProgram = "Edrakon";
         platforms = [ "x86_64-linux" ];
     };
