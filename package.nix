@@ -58,12 +58,12 @@ buildDotnetModule rec {
         openxr-loader
         libglvnd
         vulkan-loader
-        xorg.libX11
-        xorg.libXext
-        xorg.libXfixes
-        xorg.libXrandr
-        xorg.libXcursor
-        xorg.libXinerama
+        (pkgs.libx11 or pkgs.xorg.libX11)
+        (pkgs.libxext or pkgs.xorg.libXext)
+        (pkgs.libxfixes or pkgs.xorg.libXfixes)
+        (pkgs.libxrandr or pkgs.xorg.libXrandr)
+        (pkgs.libxcursor or pkgs.xorg.libXcursor)
+        (pkgs.libxinerama or pkgs.xorg.libXinerama)
         libdrm
         udev
         dbus

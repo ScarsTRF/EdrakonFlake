@@ -38,12 +38,12 @@
                         pkgs.openxr-loader
                         pkgs.libglvnd
                         pkgs.vulkan-loader
-                        pkgs.xorg.libX11
-                        pkgs.xorg.libXext
-                        pkgs.xorg.libXfixes
-                        pkgs.xorg.libXrandr
-                        pkgs.xorg.libXcursor
-                        pkgs.xorg.libXinerama
+                        (pkgs.libx11 or pkgs.xorg.libX11)
+                        (pkgs.libxext or pkgs.xorg.libXext)
+                        (pkgs.libxfixes or pkgs.xorg.libXfixes)
+                        (pkgs.libxrandr or pkgs.xorg.libXrandr)
+                        (pkgs.libxcursor or pkgs.xorg.libXcursor)
+                        (pkgs.libxinerama or pkgs.xorg.libXinerama)
                         pkgs.libdrm
                         pkgs.udev
                         pkgs.dbus
