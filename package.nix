@@ -41,10 +41,9 @@ buildDotnetModule rec {
         chmod -R u+w $sourceRoot/../KoboldOSC
     '';
 
-    # NOTE: Removed for now till I can figure out another patch for later
-    # patches = [
-    #     ./env-port.patch
-    # ];
+    patches = [
+        ./env-port.patch
+    ];
 
     projectFile = "Edrakon.csproj";
     nugetDeps = ./deps.json;
